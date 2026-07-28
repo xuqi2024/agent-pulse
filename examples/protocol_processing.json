@@ -1,0 +1,2 @@
+{"t":"state","status":"processing","tool":"Bash","message":"Running pytest","progress":42,"seq":17,"ts":1753700000123}
+{"t":"state_ack","seq":17,"rendered":true}

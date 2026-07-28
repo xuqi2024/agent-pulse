@@ -1,0 +1,2 @@
+{"t":"hello","protocol_version":1,"device_name":"xq-mbp","width":320,"height":240}
+{"t":"hello_ack","firmware_version":"0.1.0","width":320,"height":240,"caps":["st7789","backlight_pwm","boot_btn"]}

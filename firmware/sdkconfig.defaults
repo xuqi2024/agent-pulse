@@ -1,0 +1,57 @@
+# agent-pulse firmware sdkconfig defaults
+# Target
+CONFIG_IDF_TARGET="esp32s3"
+
+# ESP-IDF
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+
+# CPU: 240 MHz is fine for our use
+CONFIG_ESP32S3_DEFAULT_CPU_FREQ_240=y
+
+# FreeRTOS: tighter tick for snappier UI
+CONFIG_FREERTOS_HZ=1000
+
+# Console: silence by default — we own UART0 for the protocol
+# (CH340K on the board is wired to UART0)
+CONFIG_ESP_CONSOLE_NONE=y
+CONFIG_ESP_CONSOLE_UART_NONE=y
+
+# Logs: minimal — they could otherwise pollute our protocol stream
+CONFIG_LOG_DEFAULT_LEVEL_NONE=y
+CONFIG_BOOTLOADER_LOG_LEVEL_NONE=y
+
+# WiFi / Bluetooth: not used
+CONFIG_ESP32_WIFI_ENABLED=n
+CONFIG_ESP32_WIFI_SW_CRYPTO=n
+CONFIG_BT_ENABLED=n
+
+# PSRAM: required for frame buffer
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP=y
+CONFIG_SPIRAM_ALLOW_STACK_EXTERNAL=y
+CONFIG_SPIRAM_ALLOW_BSS_SEG_EXTERNAL=y
+CONFIG_SPIRAM_IGNORE_WRITE_PROTECTION=y
+CONFIG_SPIRAM_PREALLOCATE_STACK_LINES=0
+
+# LCD
+CONFIG_LCD_ENABLE_DEBUG_LOG=n
+CONFIG_LCD_PANEL_IO_FORMAT_BUFFER_SIZE=64
+
+# FreeRTOS hooks
+CONFIG_FREERTOS_CHECK_STACKOVERFLOW_CANARY=y
+CONFIG_FREERTOS_WATCHPOINT_END_OF_STACK=y
+
+# Compiler: optimize for size (firmware is small anyway)
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+# Allow cstdio printf, even though we won't use it
+CONFIG_LIBC_PICOLIBC=n
+CONFIG_LIBC_NEWLIB=y
+
+# Use the newlib nano formatting (smaller)
+CONFIG_NEWLIB_NANO_FORMAT=y
+
+# Watchdog: keep enabled, we feed it from the render task
+CONFIG_ESP_TASK_WDT=y
+CONFIG_ESP_TASK_WDT_TIMEOUT_S=10

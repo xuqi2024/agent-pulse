@@ -1,0 +1,45 @@
+# ESP-IDF
+firmware/build/
+firmware/managed_components/
+firmware/sdkconfig
+firmware/sdkconfig.old
+firmware/.idf_tools/
+firmware/dependencies.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Project-specific
+state.json
+*.log
+examples/sim_*.png
+examples/screenshots/*.png
+.cache/
+
+# Test artifacts
+bridge/tests/fixtures/output_*
+*.tmp
+
+# Workspace-level harness config (auto-generated, not part of this project)
+.harness/

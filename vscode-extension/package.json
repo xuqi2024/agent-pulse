@@ -1,0 +1,16 @@
+{
+  "name": "agent-pulse",
+  "displayName": "agent-pulse",
+  "description": "Bridge Copilot/Cursor activity to the agent-pulse status display",
+  "version": "0.1.0",
+  "publisher": "xuqi2024",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": []
+  }
+}
